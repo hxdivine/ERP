@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>仓库库存管理</title>
+<link rel="stylesheet" type="text/css" href="ui/themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+<script type="text/javascript" src="ui/jquery.min.js"></script>
+<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+<script type="text/javascript" src="ui/jquery.serializejson.min.js"></script>
+<script type="text/javascript" src="js/storeDetail.js"></script>
+<script type="text/javascript" src="js/storeoper.js"></script>
+<script type="text/javascript" src="ui/date.js"></script>
+</head>
+<body>
+<div class="easyui-panel" style="padding-left:4px;border-bottom:0px;">
+	<div style="height:2px;"></div>
+	<form id="searchForm">
+			仓库：<input name="storeuuid" class="easyui-combobox" data-options="
+				url: 'store_list',valueField: 'uuid',textField:'name'
+			">
+			商品：<input name="goodsuuid" class="easyui-combobox" data-options="
+				url: 'goods_list',valueField: 'uuid',textField:'name'
+			">
+
+
+		<button type="button" id="btnSearch">查询</button>
+	</form>
+	<div style="height:2px;"></div>
+</div>
+<table id="grid"></table>
+<!-- 库存操作详情 -->
+<div id="storeOperDlg" style="padding:4px;">
+	<div class="easyui-panel" style="padding-left:4px;border-bottom:0px;">
+		<div style="height:2px;"></div>
+		<form id="searchOperForm">
+				操作员号：<input name="empuuid" class="easyui-combobox" data-options="
+					url:'emp_list', valueField:'uuid',textField:'name'
+				">
+		操作日期：<input name="opertime" class="easyui-datebox">-><input name="operEnd" class="easyui-datebox">
+		<br>
+		&nbsp;&nbsp仓&nbsp;&nbsp库&nbsp;&nbsp;&nbsp：<input name="storeuuid" class="easyui-combobox" data-options="
+					url:'store_list', valueField:'uuid',textField:'name'
+				">
+		&nbsp;&nbsp商&nbsp;&nbsp品&nbsp;&nbsp;&nbsp：<input name="goodsuuid"  class="easyui-combobox" data-options="
+					url:'goods_list', valueField:'uuid',textField:'name'
+				">
+		<br>
+		&nbsp;&nbsp类&nbsp;&nbsp型&nbsp;&nbsp;&nbsp：<input name="type"  class="easyui-combobox" data-options="
+					data: [{uuid:'',name:'全部'},{uuid:'1',name:'入库'},{uuid:'2',name:'出库'}], valueField:'uuid',textField:'name'
+				">
+	
+		&nbsp;&nbsp;&nbsp;&nbsp&nbsp;&nbsp;&nbsp;&nbsp	<button type="button" id="btnOperSearch">查询</button>
+		</form>
+		<div style="height:2px;"></div>
+	</div>
+	<table id="Opergrid"></table>
+</div>
+</body>
+</html>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  <!--   客户的数据库映射 -->
+<hibernate-mapping>
+	<class name="com.erp.entity.StoreAlert" table="view_storealert">
+		<id name="uuid"/>
+		<property name="name"/>
+		<property name="storenum"/>
+		<property name="outnum"/>
+	</class>
+</hibernate-mapping>

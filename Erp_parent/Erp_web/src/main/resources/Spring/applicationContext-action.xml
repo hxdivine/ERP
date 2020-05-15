@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd ">
+	
+	<bean id="loginAction" class="com.erp.action.LoginAction" scope="prototype">
+		<property name="empBiz" ref="empBiz"/>
+	</bean>
+	
+	<bean id="depAction" class="com.erp.action.DepAction" scope="prototype">
+		<property name="depBiz" ref="depBiz"/>
+	</bean>
+	<!-- 报表 -->
+	<bean id="reportAction" class="com.erp.action.ReportAction" scope="prototype">
+		<property name="reportBiz" ref="reportBiz"/>
+	</bean>
+	
+	<bean id="empAction" class="com.erp.action.EmpAction" scope="prototype">
+		<property name="empBiz" ref="empBiz"/>
+	</bean>
+	
+	<bean id="goodsAction" class="com.erp.action.GoodsAction" scope="prototype">
+		<property name="goodsBiz" ref="goodsBiz"/>
+	</bean>
+	
+	<bean id="goodsTypeAction" class="com.erp.action.GoodsTypeAction" scope="prototype">
+		<property name="goodsTypeBiz" ref="goodsTypeBiz"/>
+	</bean>
+	
+	<bean id="inventoryAction" class="com.erp.action.InventoryAction" scope="prototype">
+		<property name="inventoryBiz" ref="inventoryBiz"/>
+	</bean>
+	
+	<bean id="storeAction" class="com.erp.action.StoreAction" scope="prototype">
+		<property name="storeBiz" ref="storeBiz"/>
+	</bean>
+
+	<bean id="emp_RoleAction" class="com.erp.action.Emp_RoleAction" scope="prototype">
+		<property name="emp_RoleBiz" ref="emp_RoleBiz" />
+	</bean>
+
+	<bean id="menuAction" class="com.erp.action.MenuAction" scope="prototype">
+		<property name="menuBiz" ref="menuBiz" />
+		<property name="empBiz" ref="empBiz"/>
+	</bean>
+
+	<bean id="orderDetailAction" class="com.erp.action.OrderDetailAction" scope="prototype">
+		<property name="orderDetailBiz" ref="orderDetailBiz" />
+	</bean>
+
+	<bean id="ordersAction" class="com.erp.action.OrdersAction" scope="prototype">
+		<property name="ordersBiz" ref="ordersBiz" />
+	</bean>
+
+	<bean id="returnOrderDetailAction" class="com.erp.action.ReturnOrderDetailAction" scope="prototype">
+		<property name="returnOrderDetailBiz" ref="returnOrderDetailBiz" />
+	</bean>
+
+	<bean id="returnOrdersAction" class="com.erp.action.ReturnOrdersAction" scope="prototype">
+		<property name="returnOrdersBiz" ref="returnOrdersBiz" />
+	</bean>
+
+	<bean id="role_MenuAction" class="com.erp.action.Role_MenuAction" scope="prototype">
+		<property name="role_MenuBiz" ref="role_MenuBiz" />
+	</bean>
+
+	<bean id="roleAction" class="com.erp.action.RoleAction" scope="prototype">
+		<property name="roleBiz" ref="roleBiz" />
+	</bean>
+
+	<bean id="storeDetailAction" class="com.erp.action.StoreDetailAction" scope="prototype">
+		<property name="storeDetailBiz" ref="storeDetailBiz" />
+	</bean>
+
+	<bean id="storeOperAction" class="com.erp.action.StoreOperAction" scope="prototype">
+		<property name="storeOperBiz" ref="storeOperBiz" />
+	</bean>
+
+	<bean id="supplierAction" class="com.erp.action.SupplierAction" scope="prototype">
+		<property name="supplierBiz" ref="supplierBiz" />
+	</bean>
+</beans>

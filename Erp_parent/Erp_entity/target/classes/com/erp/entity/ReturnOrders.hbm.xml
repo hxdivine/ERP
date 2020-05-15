@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- 客户的数据库映射 -->
+<hibernate-mapping>
+	<class name="com.erp.entity.ReturnOrders" table="returnorders">
+		<id name="uuid">
+			<generator class="sequence">
+				<param name="sequence_name">returnorders_SEQ</param>
+			</generator>
+		</id>
+
+		<property name="createtime" />
+		<property name="checktime" />
+		<property name="endtime" />
+		<property name="type" />
+		<property name="creater" />
+		<property name="checker" />
+		<property name="ender" />
+		<property name="supplieruuid" />
+		<property name="totalmoney" />
+		<property name="state" />
+		<property name="waybillsn" />
+		 <!-- <property name="ordersuuid" />  这里下面有了,不再需要 --> 
+        <!-- 配置一对多的映射,放置多的一方的集合list
+        key标签:
+        	column:多的一方的外键的名称
+        one to many标签
+        	class:多的一方的类的全路径
+         -->
+        <!-- 级联更新 ,此处订单对应订单明细是  一对多  一的一方放弃维护外键-->
+        <bag name="returnOrderDetails" cascade="save-update" inverse="true">
+        	<key column="ordersuuid"></key>
+        	<one-to-many class="com.erp.entity.ReturnOrderDetail"/>
+        </bag>
+
+	</class>
+</hibernate-mapping>

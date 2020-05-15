@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:aop="http://www.springframework.org/schema/aop" 
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd 
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd 
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd ">
+	
+	
+	
+	<!-- 业务 -->
+	<bean id="depBiz" class="com.erp.biz.impl.DepBiz">
+		<property name="depDao" ref="depDao" />
+	</bean>
+	
+	<bean id="empBiz" class="com.erp.biz.impl.EmpBiz">
+		<property name="empDao" ref="empDao" />
+		<property name="roleDao" ref="roleDao" />
+		<property name="menuDao" ref="menuDao" />
+	</bean>
+	
+	<bean id="reportBiz" class="com.erp.biz.impl.ReportBiz">
+		<property name="reportDao" ref="reportDao" />
+	</bean>
+	
+	<bean id="goodsBiz" class="com.erp.biz.impl.GoodsBiz">
+		<property name="goodsDao" ref="goodsDao" />
+	</bean>
+	
+	<bean id="goodsTypeBiz" class="com.erp.biz.impl.GoodsTypeBiz">
+		<property name="goodsTypeDao" ref="goodsTypeDao" />
+	</bean>
+	
+	<bean id="inventoryBiz" class="com.erp.biz.impl.InventoryBiz">
+		<property name="inventoryDao" ref="inventoryDao" />
+	</bean>
+	
+	<bean id="storeBiz" class="com.erp.biz.impl.StoreBiz">
+		<property name="storeDao" ref="storeDao" />
+	</bean>
+	
+	<bean id="emp_RoleBiz" class="com.erp.biz.impl.Emp_RoleBiz">
+		<property name="emp_RoleDao" ref="emp_RoleDao" />
+	</bean>
+	
+	<bean id="menuBiz" class="com.erp.biz.impl.MenuBiz">
+		<property name="menuDao" ref="menuDao" />
+	</bean>
+	
+	<bean id="orderDetailBiz" class="com.erp.biz.impl.OrderDetailBiz">
+		<property name="orderDetailDao" ref="orderDetailDao" />
+		<property name="storeOperDao" ref="storeOperDao" />
+		<property name="storeDetailDao" ref="storeDetailDao" />
+		<property name="supplierDao" ref="supplierDao"></property>
+		<property name="waybillWs" ref="waybillClient"></property>
+	</bean>
+	
+	<bean id="ordersBiz" class="com.erp.biz.impl.OrdersBiz">
+		<property name="ordersDao" ref="ordersDao" />
+		<property name="empDao" ref="empDao" />
+		<property name="supplierDao" ref="supplierDao" />
+		<property name="waybillWs" ref="waybillClient"></property>
+	</bean>
+	
+	<bean id="returnOrderDetailBiz" class="com.erp.biz.impl.ReturnOrderDetailBiz">
+		<property name="returnOrderDetailDao" ref="returnOrderDetailDao" />
+		<property name="supplierDao" ref="supplierDao"/>
+		<property name="storeOperDao" ref="storeOperDao" />
+		<property name="storeDetailDao" ref="storeDetailDao" />
+	</bean>
+	
+	<bean id="returnOrdersBiz" class="com.erp.biz.impl.ReturnOrdersBiz">
+		<property name="returnOrdersDao" ref="returnOrdersDao" />
+		<property name="empDao" ref="empDao" />
+		<property name="supplierDao" ref="supplierDao"/>
+	</bean>
+	
+	<bean id="role_MenuBiz" class="com.erp.biz.impl.Role_MenuBiz">
+		<property name="role_MenuDao" ref="role_MenuDao" />
+	</bean>
+	
+	<bean id="roleBiz" class="com.erp.biz.impl.RoleBiz">
+		<property name="roleDao" ref="roleDao" />
+		<property name="menuDao" ref="menuDao" />
+	</bean>
+	
+	<bean id="storeDetailBiz" class="com.erp.biz.impl.StoreDetailBiz">
+		<property name="storeDetailDao" ref="storeDetailDao" />
+		<property name="storeDao" ref="storeDao" />
+		<property name="goodsDao" ref="goodsDao" />
+		
+		<property name="mailUtil" ref="mailUtil"/>
+		<property name="to" value="1564184726@qq.com"/>
+		<property name="subject" value="库存预警——时间：[time]"/>
+		<property name="text" value="亲！有[count]种商品已经库存不足，请登录相乘ERP系统进行查看"/>
+	</bean>
+	
+	<bean id="storeOperBiz" class="com.erp.biz.impl.StoreOperBiz">
+		<property name="storeOperDao" ref="storeOperDao" />
+		<property name="empDao" ref="empDao" />
+		<property name="storeDao" ref="storeDao" />
+		<property name="goodsDao" ref="goodsDao" />
+	</bean>
+	
+	<bean id="supplierBiz" class="com.erp.biz.impl.SupplierBiz">
+		<property name="supplierDao" ref="supplierDao" />
+	</bean>
+	
+
+	<!-- 仅供测试用 -->
+	<!-- <import resource="classpath:Spring/applicationContext-dao.xml"/>  -->
+	
+	
+	
+</beans>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  <!--   客户的数据库映射 -->
+<hibernate-mapping>
+	<class name="com.erp.entity.Menu" table="menu">
+		<id name="menuid">
+			<generator class="sequence">
+				<param name="sequence_name">menu_SEQ</param>
+			</generator>
+		</id>
+
+		<property name="menuname" />
+		<property name="icon" />
+		<property name="url" />
+		
+		<bag name="menus" order-by="menuid">
+			<key column="pid"/>
+			<one-to-many class="com.erp.entity.Menu"/>
+		</bag>
+
+	</class>
+</hibernate-mapping>

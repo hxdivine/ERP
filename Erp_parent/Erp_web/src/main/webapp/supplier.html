@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dep.html</title>
+ <!-- 引入easyUI  css和js -->
+	<link rel="stylesheet" type="text/css" href="ui/themes/default/easyui.css">
+	<link rel="stylesheet" type="text/css" href="ui/themes/icon.css">
+	<script type="text/javascript" src="ui/jquery.min.js"></script>
+	<script type="text/javascript" src="ui/jquery.easyui.min.js"></script>
+	<script type="text/javascript" src="ui/locale/easyui-lang-zh_CN.js"></script>
+	<script type="text/javascript" src="ui/jquery.serializejson.min.js"></script>
+	<script type="text/javascript" src="ui/date.js"></script>
+    <script type="text/javascript" src="ui/request.js"></script>
+    <script type="text/javascript" src="ui/download.js"></script>
+	<script type="text/javascript" src="js/crud.js"></script>
+
+    <script type="text/javascript">
+		  if(Request['type']==1){
+		        document.title="供应商管理";
+		        listParam = "?type=1";
+		  }
+		  if(Request['type']==2){
+		      document.title="客户管理";
+		      listParam = "?type=2";
+		  }
+
+         var name="supplier";
+         var columns=[ [ 
+			{field : 'uuid', title : '编号',width:80},
+			{field : 'name', title : '名称',width:80},
+			{field : 'address', title : '联系地址',width:80},
+			{field : 'contact', title : '联系人',width:80},
+			{field : 'tele', title : '联系电话',width:80},
+			{field : 'email', title : '邮件地址',width:80},
+
+			{field:'-',title:'操作',formatter: function(value,row,index){
+	        	var oper = "<a href=\"javascript:void(0)\" onclick=\"edit(" + row.uuid + ')">修改</a>';
+	        	oper += ' <a href="javascript:void(0)" onclick="del(' + row.uuid + ')">删除</a>';
+	        	return oper;
+			}}
+	    ]];
+    </script>
+  </head>
+  <body>
+<div class="easyui-panel" style="padding-left:4px;border-bottom:0px;">
+<div style="height:2px;"></div>
+<form id="searchForm" method="post">
+	<table>
+		<tr>
+			<td>名称</td><td><input name="name"></td>
+			<td>联系地址</td><td><input name="address"></td>
+			<td>联系人</td><td><input name="contact"></td>
+		</tr>
+		<tr>
+			<td>联系电话</td><td><input name="tele"></td>
+			<td>邮件地址</td><td><input name="email"></td>
+
+		</tr>
+	</table>
+	<button id="btnSearch" type="button">查询</button>
+</form>
+<div style="height:2px;"></div>
+
+<table id="grid"></table>
+<div id="editDlg">
+  	  <form id="editForm" method="post">
+			<input type="hidden" name="uuid" />
+		<table>
+			<tr>
+			      <td>名称</td>
+			      <td><input name="name"></td>
+			</tr>
+			<tr>
+			      <td>联系地址</td>
+			      <td><input name="address"></td>
+			</tr>
+			<tr>
+			      <td>联系人</td>
+			      <td><input name="contact"></td>
+			</tr>
+			<tr>
+			      <td>联系电话</td>
+			      <td><input name="tele"></td>
+			</tr>
+			<tr>
+			      <td>邮件地址</td>
+			      <td><input name="email"></td>
+			</tr>
+			
+			<tr>
+			<td colspan="2" align="center">
+				<button id="btnSave" type="button">保存</button>
+			</td>
+	    	</tr>
+		</table>
+		
+		
+	</form>
+</div> 
+<!-- 导入窗口 -->
+<div id="importDlg" style="padding:2px;">
+	<form id="importForm" enctype="multipart/form-data">
+		导入文件:<input type="file" name="file">
+	</form>
+</div>
+  </body>
+</html>

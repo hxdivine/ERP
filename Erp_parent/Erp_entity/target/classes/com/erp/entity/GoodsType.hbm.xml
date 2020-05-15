@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  <!--   客户的数据库映射 -->
+<hibernate-mapping>
+	<class name="com.erp.entity.GoodsType" table="goodstype">
+		<id name="uuid">
+			<generator class="sequence">
+			    <param name="sequence_name">goodstype_SEQ</param>
+			</generator>
+		</id>
+
+		<property name="name"/>
+
+	</class>
+</hibernate-mapping>

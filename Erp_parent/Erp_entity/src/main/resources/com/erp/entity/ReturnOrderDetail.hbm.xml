@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+  <!--   客户的数据库映射 -->
+<hibernate-mapping>
+	<class name="com.erp.entity.ReturnOrderDetail" table="returnorderdetail">
+	<id name="uuid">
+		<generator class="sequence">
+			<param name="sequence_name">returnorderdetail_SEQ</param>
+		</generator>
+	</id>
+
+	<property name="goodsuuid" />
+	<property name="goodsname" />
+	<property name="price" />
+	<property name="num" />
+	<property name="money" />
+	<property name="endtime" />
+	<property name="ender" />
+	<property name="storeuuid" />
+	<property name="state" />
+	<!-- <property name="ordersuuid" /> 这里下面配置了,所以不需要再配置 -->
+
+	<!-- 配置多对一的关系,放置的是一的一方的对象 many-to-one 标签 name:一的一方的对象的属性名称 class:一的一方的类的全路径 
+		column:多的一方的表的外键名称 -->
+	<many-to-one name="returnOrders" column="ordersuuid"
+		class="com.erp.entity.ReturnOrders"></many-to-one>
+
+</class>
+</hibernate-mapping>
